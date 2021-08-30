@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+set $count= 12
+if [ $count > 11 ]
+then
+echo "true"
+else 
+echo "no"
+fi

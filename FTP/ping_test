@@ -1,0 +1,28 @@
+#!/bin/bash
+
+DATE=$(date +"%d.%m.%Y %T")
+SHORT_DATE=$(date +"%d.%m.%Y")
+
+echo
+echo "Pinging host " $@
+echo
+
+HOST=$@
+
+
+ping $HOST | while read PONG
+do
+        grep -q ttl <<< "$PONG"
+
+        if [ $? -eq 0 ]; then
+
+                echo "`date`: $PONG"
+                echo "`date`: $PONG" &>> ping_check_$SHORT_DATE.log
+
+        else
+
+                echo "`date`: ping failed, $HOST host is DOWN!" &>> ping_check_$SHORT_DATE.log
+                echo "$PONG" &>> ping_check_$SHORT_DATE.log
+        fi
+done
+

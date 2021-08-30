@@ -1,0 +1,2 @@
+
+$ nohup ping 10.1.5.1 > /genesys_log/log.txt &
