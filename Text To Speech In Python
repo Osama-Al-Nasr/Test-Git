@@ -1,0 +1,6 @@
+import pyttsx3 as pt
+engine = pt.init()
+engine.say("Hi How Are you Dear, So as I told you I can read any English words you type, your words are:")
+word = input("I can read any thing you type, ok try please write down your words and press enter\n")
+engine.say(word)
+engine.runAndWait()
